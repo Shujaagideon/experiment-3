@@ -185,7 +185,7 @@ export default class Template {
             fragmentShader: fragmentBg
         });
 
-        this.geometry = new THREE.PlaneBufferGeometry(28, 20, 2, 2);
+        this.geometry = new THREE.PlaneBufferGeometry(58, 40, 2, 2);
 
         this.plane = new THREE.Mesh(this.geometry, this.materialBg);
         this.plane.position.z =  -6;

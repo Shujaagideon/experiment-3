@@ -14,7 +14,7 @@ void main(){
     // vec3 col = mix(vec3(0.0196, 0.4196, 0.749), vec3(0.3451, 0.8941, 0.0275), light);
     // vec3 col2 = mix(vec3(0.2431, 0.6549, 0.9882), vec3(0.4745, 0.9137, 0.2196), vNoise);
     vec2 newUv = (vUv * 2.);
-    float dist = 1. - distance(vUv *2., vec2(1.1, 1.3));
+    float dist = 1. - distance(vUv *4., vec2(2.1, 2.3));
     vec3 final = mix(u_color, u_color2, dist);
     gl_FragColor = vec4( final, 1.);
 }

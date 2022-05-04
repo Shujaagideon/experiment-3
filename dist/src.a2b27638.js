@@ -36883,7 +36883,7 @@ module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform float progress
 },{}],"src/shaders/bgShaders/vertex.glsl":[function(require,module,exports) {
 module.exports = "#define GLSLIFY 1\nuniform float time;\nvarying vec2 vUv;\nvarying vec3 vPosition;\nvarying vec3 vNormal;\n\nvoid main(){\n    vUv = uv;\n    vNormal = normal;\n    vPosition = position;\n    \n    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n}";
 },{}],"src/shaders/bgShaders/fragment.glsl":[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec3 u_color;\nuniform vec3 u_color2;\nvarying vec2 vUv;\nvarying vec3 vPosition;\nvarying vec3 vNormal;\n\nvoid main(){\n    // float light = 0.5 * (dot( (vNormal), normalize(vec3(1.0, 1.0, .8)))) + 0.4;\n    // float light = dot( (vNormal), normalize(vec3(1.0, 1.0, .8)));\n    // float fres = Fresnel(eyeVector, vNormal);\n    \n    // vec3 col = mix(vec3(0.0196, 0.4196, 0.749), vec3(0.3451, 0.8941, 0.0275), light);\n    // vec3 col2 = mix(vec3(0.2431, 0.6549, 0.9882), vec3(0.4745, 0.9137, 0.2196), vNoise);\n    vec2 newUv = (vUv * 2.);\n    float dist = 1. - distance(vUv *2., vec2(1.1, 1.3));\n    vec3 final = mix(u_color, u_color2, dist);\n    gl_FragColor = vec4( final, 1.);\n}";
+module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec3 u_color;\nuniform vec3 u_color2;\nvarying vec2 vUv;\nvarying vec3 vPosition;\nvarying vec3 vNormal;\n\nvoid main(){\n    // float light = 0.5 * (dot( (vNormal), normalize(vec3(1.0, 1.0, .8)))) + 0.4;\n    // float light = dot( (vNormal), normalize(vec3(1.0, 1.0, .8)));\n    // float fres = Fresnel(eyeVector, vNormal);\n    \n    // vec3 col = mix(vec3(0.0196, 0.4196, 0.749), vec3(0.3451, 0.8941, 0.0275), light);\n    // vec3 col2 = mix(vec3(0.2431, 0.6549, 0.9882), vec3(0.4745, 0.9137, 0.2196), vNoise);\n    vec2 newUv = (vUv * 2.);\n    float dist = 1. - distance(vUv *4., vec2(2.1, 2.3));\n    vec3 final = mix(u_color, u_color2, dist);\n    gl_FragColor = vec4( final, 1.);\n}";
 },{}],"src/assets/grass1.jpg":[function(require,module,exports) {
 module.exports = "/grass1.6dfde61c.jpg";
 },{}],"node_modules/dat.gui/build/dat.gui.module.js":[function(require,module,exports) {
@@ -46768,7 +46768,7 @@ class Template {
       vertexShader: _vertex2.default,
       fragmentShader: _fragment2.default
     });
-    this.geometry = new THREE.PlaneBufferGeometry(28, 20, 2, 2);
+    this.geometry = new THREE.PlaneBufferGeometry(58, 40, 2, 2);
     this.plane = new THREE.Mesh(this.geometry, this.materialBg);
     this.plane.position.z = -6;
     this.scene.add(this.plane);
